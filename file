@@ -1,0 +1,60 @@
+1. Document Structure
+Tag	Description
+<html>	The root element that encapsulates the entire HTML document.
+<head>	Contains meta-information, title, and links to stylesheets (invisible to users).
+<title>	Defines the title of the document shown in the browser tab.
+<body>	Contains all the visible content displayed on the webpage.
+2. Text & Headings
+Tag	Description
+<h1> to <h6>	Define headings. <h1> is the most important main title, down to <h6>.
+<p>	Defines a paragraph or block of regular text.
+<span>	A generic inline container used to style a specific part of text.
+3. Containers & Layout
+Tag	Description
+<div>	A generic block-level container used to group elements together for styling or layout.
+    4. Links & Media
+Tag	Description
+<a>	Defines a hyperlink. Use the href="..." attribute to specify the URL destination.
+<img>	Embeds an image. Requires src="..." for the image path and alt="..." for text description.
+
+5. Lists
+Tag	Description
+<ul>	Defines an unordered (bulleted) list.
+<ol>	Defines an ordered (numbered) list.
+<li>	Defines a specific list item inside a <ul> or <ol>.
+6. Forms & Interaction
+Tag	Description
+<form>	A container for user input fields, used to collect and submit data.
+<input>	An input field where users can enter data. Controlled by the type="..." attribute (e.g., text, email).
+<label>	Defines a text label for an <input> element, improving accessibility.
+
+    Tag	Description
+<button>	Defines a clickable button that can submit a form or trigger JavaScript.
+    1. Typography & Text
+color	Controls the color of text.
+font-size	Defines the size of the text.
+font-family	Sets the typeface (font) used for text.
+font-weight	Controls how bold text appears.
+text-align	Aligns text horizontally (left, center, right).
+line-height	Controls vertical spacing between lines of text.
+text-decoration	Adds underline, overline, or line-through.
+2. Box Model & Sizing
+width	Sets the horizontal width of an element.
+height	Sets the vertical height of an element.
+margin	Creates transparent space outside an element.
+padding	Creates space inside an element (around content).
+border	Adds a border around an element (e.g., 1px solid black).
+border-radius	Rounds the outer corners of an element.
+
+4. Positioning
+position	Defines positioning method (relative, absolute, fixed).
+top / left / ...	Moves positioned elements away from their edges.
+
+5. Backgrounds & Visuals
+background-color	Sets the solid background color of an element.
+background-image	Applies an image as the background.
+background-size	Controls how background images scale (cover, contain).
+box-shadow	Adds a drop-shadow around an element.
+opacity	Controls transparency (0.0 is hidden, 1.0 is solid).
+6. Interactivity & Motion
+cursor	Changes the mouse cursor appearance (e.g., pointer).
