@@ -43,6 +43,25 @@ def strip_blocks(text: str, keep_up_to: int) -> str:
     return "".join(out)
 
 
+def clean_stage(text: str, kind: str) -> str:
+    """Remove instructor scaffolding from stage output so students see
+    a clean reference of what the page looks like after patch N.
+
+    HTML: drop every comment (they are all instructor-only).
+    CSS:  drop block-header comments (dividers / ▼ / ▲ / HOW TO DEMO)
+          but keep property-level comments (they help students read the code).
+    """
+    pattern = r"<!--.*?-->" if kind == "html" else r"/\*.*?\*/"
+    marker = re.compile(r"▼|▲|HOW TO DEMO|═══")
+    text = re.sub(pattern, lambda m: "" if marker.search(m.group(0)) else m.group(0),
+                  text, flags=re.S)
+    # Drop orphaned divider opening/closing lines left behind when a block
+    # was removed (e.g. a "/* ═════" whose "═════ */" was inside a deleted block).
+    text = re.sub(r"^\s*/\*\s*═+\s*\n", "", text, flags=re.M)
+    text = re.sub(r"^\s*═+\s*\*/\s*\n", "", text, flags=re.M)
+    return re.sub(r"\n{3,}", "\n\n", text)
+
+
 def clean_final(text: str, kind: str) -> str:
     """Remove instructor scaffolding comments, keep property comments."""
     pattern = r"<!--.*?-->" if kind == "html" else r"/\*.*?\*/"
@@ -76,8 +95,10 @@ def main() -> None:
         # stages sit two folders deep, so the <img> must climb back up
         stage_html = stage_html.replace('src="assets/logo.svg"',
                                         'src="../../assets/logo.svg"')
-        (d / "index.html").write_text(stage_html, encoding="utf-8")
-        (d / "style.css").write_text(strip_blocks(css, n), encoding="utf-8")
+        (d / "index.html").write_text(clean_stage(stage_html, "html"),
+                                      encoding="utf-8")
+        (d / "style.css").write_text(clean_stage(strip_blocks(css, n), "css"),
+                                     encoding="utf-8")
 
     print("final/ and stages/patch1..patch4 regenerated.")
 

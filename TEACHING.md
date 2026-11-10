@@ -233,7 +233,7 @@ wrap-up) lets fast students do the `BONUS` media query.
 
 ## 6. Student build order (for `starter/`)
 
-1. `BASE` is pre-given — explain `:root` as "our palette".
+1. `BASE` is pre-given — it's the `*` reset (`margin: 0; padding: 0; box-sizing: border-box;`).
 2. After each demo: fill that patch's `TODO` in **both** files, refresh,
    then compare with `stages/patchN/` — that folder is your page's exact
    expected state after patch N.

@@ -6,15 +6,6 @@
    ═══════════════════════════════════════════════════════════════ */
 
 /* ▼ BASE — already done (basic syntax: selector { property: value; }) */
-:root {
-  --bg-1: #eef2ff;
-  --bg-2: #e0e7ff;
-  --bg-3: #fce7f3;
-  --ink: #0f172a;
-  --muted: #64748b;
-  --accent: #4f46e5;
-}
-
 * {
   margin: 0;
   padding: 0;
