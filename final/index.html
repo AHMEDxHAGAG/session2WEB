@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Todo List · Session 2</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+  
+  <h1 class="hero-title">My <span class="accent">Todo</span> List</h1>
+  <p class="hero-sub">Stay organized, <span class="accent">one task</span> at a time.</p>
+  
+
+  
+  <div class="glow"></div>
+
+  <section class="card stats-card">
+    <span class="badge">This week</span>
+    <div class="stats">
+      <div class="stat">
+        <span class="num">8</span>
+        <span class="label">Total</span>
+      </div>
+      <div class="stat">
+        <span class="num">5</span>
+        <span class="label">Done</span>
+      </div>
+      <div class="stat">
+        <span class="num">3</span>
+        <span class="label">Left</span>
+      </div>
+    </div>
+  </section>
+  
+
+  
+  <section class="card list-card">
+    <div class="card-head">
+      <img class="head-icon" src="assets/logo.svg" alt="Web Dev Team logo">
+      <h2>Today&rsquo;s tasks</h2>
+      <span class="head-count">4 items</span>
+    </div>
+
+    <ul class="tasks">
+      <li class="task done">
+        <span class="check">&#10003;</span>
+        <span class="name">Read the HTML slides</span>
+        <span class="time">09:00</span>
+      </li>
+      <li class="task">
+        <span class="check"></span>
+        <span class="name">Finish the CSS workshop</span>
+        <span class="time">11:30</span>
+      </li>
+      <li class="task">
+        <span class="check"></span>
+        <span class="name">Practice <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout" target="_blank" rel="noopener">flexbox</a> for 30 minutes</span>
+        <span class="time">14:00</span>
+      </li>
+      <li class="task">
+        <span class="check"></span>
+        <span class="name">Submit session 2 homework</span>
+        <span class="time">18:00</span>
+      </li>
+    </ul>
+  </section>
+  
+
+  
+  <form class="card add-card">
+    <label for="new-task">What needs to be done?</label>
+    <input id="new-task" type="text" placeholder="e.g. Review flexbox notes">
+    <button type="button">+ Add task</button>
+  </form>
+  
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+/* ═══════════════════════════════════════════════════════════════
+   TODO LIST — Session 2 · STUDENT STARTER (CSS)
+   The BASE below is written for you. Fill in each PATCH section
+   as your instructor demos it. Copy the property names from the
+   board/slides — the values are in your own notes.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ▼ BASE — already done (basic syntax: selector { property: value; }) */
+:root {
+  --bg-1: #eef2ff;
+  --bg-2: #e0e7ff;
+  --bg-3: #fce7f3;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --accent: #4f46e5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ▲ END BASE */
+
+
+/* ▼ TODO PATCH 1 · CSS ch1 "Typography & Text"
+   Properties: color, font-size, font-family, font-weight,
+               text-align, line-height, text-decoration
+   Targets: body, .hero-title, .hero-sub, .accent */
+
+/* ▲ END TODO PATCH 1 */
+
+
+/* ▼ TODO PATCH 2 · CSS ch2 "Box Model" + ch5 "Backgrounds"
+                 + ch3 "Flexbox" + ch4 "Positioning"
+   Targets: body, .glow, .card, .stats-card, .badge,
+            .stats, .stat, .num, .label */
+
+/* ▲ END TODO PATCH 2 */
+
+
+/* ▼ TODO PATCH 3 · CSS — recalls only (no new chapter; use the
+   clock with margin-left: auto, not position)
+   Targets: .card-head, .head-icon, .head-count, .tasks, .task,
+            .check, .name, .name a, .time, .task.done... */
+
+/* ▲ END TODO PATCH 3 */
+
+
+/* ▼ TODO PATCH 4 · CSS ch6 "Interactivity & Motion"
+   Properties: cursor, transition, :hover, transform
+   Targets: .add-card (form), input, button, .task hover, .name a hover */
+
+/* ▲ END TODO PATCH 4 */

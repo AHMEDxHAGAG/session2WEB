@@ -1,0 +1,74 @@
+/* ═══════════════════════════════════════════════════════════════
+   TODO LIST — Session 2 (HTML + CSS)
+   HOW TO DEMO (for the instructor):
+     1. Pick a PATCH block below (from its ▼ banner to its ▲ banner).
+     2. Delete it → watch the browser → explain what changed.
+     3. Press Ctrl+Z to bring it back (undo), then continue.
+     Rules of the file:
+       • Each block groups ONE patch from the session guide.
+       • A block may only style elements introduced in the SAME or
+         an EARLIER patch (rules are never "ahead" of the HTML).
+       • Properties marked "recall" were taught in an earlier patch.
+       • The palette is LIGHT on purpose: every patch can be deleted
+         on its own and the page stays readable (good demo states).
+     ═══════════════════════════════════════════════════════════════ */
+
+/* ▼ BASE — explained during the PRE-PATCH (basic CSS syntax):
+   selector { property: value; } — that is the whole grammar. */
+:root {
+  --bg-1: #eef2ff;      /* palette: change these 6 values to re-theme */
+  --bg-2: #e0e7ff;
+  --bg-3: #fce7f3;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --accent: #4f46e5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   /* keeps width + padding inside one box */
+}
+/* ▲ END BASE */
+
+/* ═══════════════════════════════════════════════════════════════
+   ▼ PATCH 1 · CSS ch1 "Typography & Text"
+   color · font-size · font-family · font-weight ·
+   text-align · line-height · text-decoration
+   Demo: delete this whole block → page turns into plain browser
+   default text → Ctrl+Z.
+   ═══════════════════════════════════════════════════════════════ */
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  color: var(--ink);
+}
+
+.hero-title {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.hero-sub {
+  font-size: 17px;
+  line-height: 1.6;
+  text-align: center;
+  color: #475569;
+}
+
+.accent {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+/* ▲ END PATCH 1 */
+
+/* ═══════════════════════════════════════════════════════════════
+
+/* ═══════════════════════════════════════════════════════════════
+
+/* ═══════════════════════════════════════════════════════════════
+
+/* ═══════════════════════════════════════════════════════════════

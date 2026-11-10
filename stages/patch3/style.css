@@ -1,0 +1,251 @@
+/* ═══════════════════════════════════════════════════════════════
+   TODO LIST — Session 2 (HTML + CSS)
+   HOW TO DEMO (for the instructor):
+     1. Pick a PATCH block below (from its ▼ banner to its ▲ banner).
+     2. Delete it → watch the browser → explain what changed.
+     3. Press Ctrl+Z to bring it back (undo), then continue.
+     Rules of the file:
+       • Each block groups ONE patch from the session guide.
+       • A block may only style elements introduced in the SAME or
+         an EARLIER patch (rules are never "ahead" of the HTML).
+       • Properties marked "recall" were taught in an earlier patch.
+       • The palette is LIGHT on purpose: every patch can be deleted
+         on its own and the page stays readable (good demo states).
+     ═══════════════════════════════════════════════════════════════ */
+
+/* ▼ BASE — explained during the PRE-PATCH (basic CSS syntax):
+   selector { property: value; } — that is the whole grammar. */
+:root {
+  --bg-1: #eef2ff;      /* palette: change these 6 values to re-theme */
+  --bg-2: #e0e7ff;
+  --bg-3: #fce7f3;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --accent: #4f46e5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   /* keeps width + padding inside one box */
+}
+/* ▲ END BASE */
+
+/* ═══════════════════════════════════════════════════════════════
+   ▼ PATCH 1 · CSS ch1 "Typography & Text"
+   color · font-size · font-family · font-weight ·
+   text-align · line-height · text-decoration
+   Demo: delete this whole block → page turns into plain browser
+   default text → Ctrl+Z.
+   ═══════════════════════════════════════════════════════════════ */
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  color: var(--ink);
+}
+
+.hero-title {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.hero-sub {
+  font-size: 17px;
+  line-height: 1.6;
+  text-align: center;
+  color: #475569;
+}
+
+.accent {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+/* ▲ END PATCH 1 */
+
+/* ═══════════════════════════════════════════════════════════════
+   ▼ PATCH 2 · CSS ch2 "Box Model & Sizing"
+            + CSS ch5 "Backgrounds & Visuals"
+            + CSS ch3 "Layout & Flexbox"
+            + CSS ch4 "Positioning"
+   width · height · margin · padding · border · border-radius ·
+   background-color · background-image · background-size ·
+   box-shadow · opacity ·
+   display · justify-content · align-items · gap ·
+   position · top/right · z-index
+   Demo: delete this block → cards, gradient and layout all
+   disappear (only raw text remains) → Ctrl+Z.
+   ═══════════════════════════════════════════════════════════════ */
+body {
+  min-height: 100vh;
+  padding: 48px 20px;                         /* ch2: space around content */
+  display: flex;                              /* ch3: stack children */
+  flex-direction: column;
+  align-items: center;                        /* ch3: center them horizontally */
+  gap: 24px;                                  /* ch3: exact spacing between items */
+  background-color: var(--bg-1);              /* ch5: fallback color */
+  background-image: linear-gradient(135deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+  background-size: cover;                     /* ch5: fill the whole screen */
+}
+
+.glow {                                        /* decorative ball behind everything */
+  position: fixed;                             /* ch4: pinned to the viewport */
+  top: -120px;                                 /* ch4: moved away from its edge */
+  right: -80px;
+  width: 380px;
+  height: 380px;
+  background-image: radial-gradient(circle, rgba(99, 102, 241, 0.45), transparent 65%);
+  opacity: 0.7;                                /* ch5: 0 = invisible, 1 = solid */
+  z-index: -1;                                 /* ch4: push it behind the content */
+  pointer-events: none;
+}
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  padding: 24px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(14px);                 /* bonus: frosted glass */
+  position: relative;                          /* ch4: anchor for .badge */
+}
+
+.stats-card {
+  padding: 64px 24px 24px;                     /* extra top room for the badge */
+}
+
+.badge {
+  position: absolute;                          /* ch4: leaves the normal flow */
+  top: 24px;                                   /* ch4: pinned to the card corner */
+  right: 24px;
+  padding: 6px 12px;
+  border: 1px solid rgba(79, 70, 229, 0.35);   /* recall: ch2 */
+  border-radius: 999px;
+  background-color: rgba(79, 70, 229, 0.1);
+  color: var(--accent);
+  font-size: 12px;                             /* recall: ch1 */
+  font-weight: 600;
+}
+
+.stats {
+  display: flex;                               /* ch3: row of stats */
+  justify-content: space-between;              /* ch3: push them apart */
+  gap: 12px;
+}
+
+.stat {
+  flex: 1;
+  padding: 14px;
+  text-align: center;
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.num {
+  display: block;
+  font-size: 30px;                             /* recall: ch1 */
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.label {
+  font-size: 13px;                             /* recall: ch1 */
+  color: var(--muted);
+}
+/* ▲ END PATCH 2 */
+
+/* ═══════════════════════════════════════════════════════════════
+   ▼ PATCH 3 · CSS — recalls only (flex, box model, typography,
+   backgrounds). No new chapter here: positioning stays in Patch 2.
+   Demo: delete this block → the list becomes browser-default
+   bullets and the clock tags vanish → Ctrl+Z.
+   ═══════════════════════════════════════════════════════════════ */
+.card-head {
+  display: flex;                               /* recall: ch3 */
+  align-items: center;
+  gap: 10px;                                   /* recall: ch3 — icon, title, count apart */
+  margin-bottom: 16px;
+}
+
+.card-head h2 {
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.head-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;                          /* recall: ch2 — the logo becomes a circle */
+}
+
+.head-count {
+  margin-left: auto;                           /* recall: ch2 — same trick as .time */
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.tasks {
+  list-style: none;                            /* kill the default bullets */
+}
+
+.task {
+  display: flex;                               /* recall: ch3 */
+  align-items: center;
+  gap: 12px;
+  padding: 14px 4px;                           /* recall: ch2 */
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.task:last-child {
+  border-bottom: none;
+}
+
+.check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(15, 23, 42, 0.3);
+  border-radius: 50%;
+  font-size: 11px;
+  color: #064e3b;
+}
+
+.name {
+  font-size: 15px;
+}
+
+.name a {
+  color: var(--accent);
+  font-weight: 600;                            /* recall: ch1 */
+  text-decoration: none;                       /* recall: ch1 — links are underlined by default */
+}
+
+.time {
+  margin-left: auto;                           /* recall: ch2 — pushes the clock to the right */
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.task.done .check {
+  background-color: #34d399;                   /* recall: ch5 */
+  border-color: #34d399;
+}
+
+.task.done .name {
+  text-decoration: line-through;               /* recall: ch1 (now the 2nd value) */
+  color: var(--muted);
+  opacity: 0.7;                                /* recall: ch5 */
+}
+/* ▲ END PATCH 3 */
+
+/* ═══════════════════════════════════════════════════════════════
+
+/* ═══════════════════════════════════════════════════════════════
