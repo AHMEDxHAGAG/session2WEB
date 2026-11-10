@@ -1,23 +1,16 @@
-
-
-:root {
-  --bg-1: #eef2ff;      /* palette: change these 6 values to re-theme */
-  --bg-2: #e0e7ff;
-  --bg-3: #fce7f3;
-  --ink: #0f172a;
-  --muted: #64748b;
-  --accent: #4f46e5;
-}
-
+/* ═══════════════════════════════════════════════════════════════
+   ▼ PATCH 1: Reset & Basic Typography
+   ═══════════════════════════════════════════════════════════════ */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;   /* keeps width + padding inside one box */
+  box-sizing: border-box;
+  /* keeps width + padding inside one box */
 }
 
 body {
-  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  color: var(--ink);
+  font-family: Arial, sans-serif;
+  color: #0f172a;
 }
 
 .hero-title {
@@ -35,33 +28,38 @@ body {
 }
 
 .accent {
-  color: var(--accent);
+  color: #4f46e5;
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 5px;
 }
 
+/* ▲ END PATCH 1 */
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ▼ PATCH 2: Layout, Containers, Stats Card & Backgrounds
+   ═══════════════════════════════════════════════════════════════ */
 body {
   min-height: 100vh;
-  padding: 48px 20px;                         /* ch2: space around content */
-  display: flex;                              /* ch3: stack children */
+  padding: 48px 20px;
+  display: flex;
   flex-direction: column;
-  align-items: center;                        /* ch3: center them horizontally */
-  gap: 24px;                                  /* ch3: exact spacing between items */
-  background-color: var(--bg-1);              /* ch5: fallback color */
-  background-image: linear-gradient(135deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
-  background-size: cover;                     /* ch5: fill the whole screen */
+  align-items: center;
+  gap: 24px;
+  background-color: #eef2ff;
+  background-image: linear-gradient(135deg, #eef2ff, #e0e7ff 55%, #fce7f3);
+  background-size: cover;
 }
 
-.glow {                                        /* decorative ball behind everything */
-  position: fixed;                             /* ch4: pinned to the viewport */
-  top: -120px;                                 /* ch4: moved away from its edge */
+.glow {
+  position: fixed;
+  top: -120px;
   right: -80px;
   width: 380px;
   height: 380px;
   background-image: radial-gradient(circle, rgba(99, 102, 241, 0.45), transparent 65%);
-  opacity: 0.7;                                /* ch5: 0 = invisible, 1 = solid */
-  z-index: -1;                                 /* ch4: push it behind the content */
+  opacity: 0.7;
   pointer-events: none;
 }
 
@@ -73,30 +71,30 @@ body {
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.72);
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
-  backdrop-filter: blur(14px);                 /* bonus: frosted glass */
-  position: relative;                          /* ch4: anchor for .badge */
+  backdrop-filter: blur(14px);
+  position: relative;
 }
 
 .stats-card {
-  padding: 64px 24px 24px;                     /* extra top room for the badge */
+  padding: 64px 24px 24px;
 }
 
 .badge {
-  position: absolute;                          /* ch4: leaves the normal flow */
-  top: 24px;                                   /* ch4: pinned to the card corner */
-  right: 24px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
   padding: 6px 12px;
-  border: 1px solid rgba(79, 70, 229, 0.35);   /* recall: ch2 */
+  border: 1px solid rgba(79, 70, 229, 0.35);
   border-radius: 999px;
   background-color: rgba(79, 70, 229, 0.1);
-  color: var(--accent);
-  font-size: 12px;                             /* recall: ch1 */
+  color: #4f46e5;
+  font-size: 12px;
   font-weight: 600;
 }
 
 .stats {
-  display: flex;                               /* ch3: row of stats */
-  justify-content: space-between;              /* ch3: push them apart */
+  display: flex;
+  justify-content: space-between;
   gap: 12px;
 }
 
@@ -111,20 +109,26 @@ body {
 
 .num {
   display: block;
-  font-size: 30px;                             /* recall: ch1 */
+  font-size: 30px;
   font-weight: 800;
   color: #0f172a;
 }
 
 .label {
-  font-size: 13px;                             /* recall: ch1 */
-  color: var(--muted);
+  font-size: 13px;
+  color: #64748b;
 }
 
+/* ▲ END PATCH 2 */
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ▼ PATCH 3: Lists, Links, and Media (Ahmed Farouk Part)
+   ═══════════════════════════════════════════════════════════════ */
 .card-head {
-  display: flex;                               /* recall: ch3 */
+  display: flex;
   align-items: center;
-  gap: 10px;                                   /* recall: ch3 — icon, title, count apart */
+  gap: 10px;
   margin-bottom: 16px;
 }
 
@@ -136,29 +140,36 @@ body {
 .head-icon {
   width: 32px;
   height: 32px;
-  border-radius: 50%;                          /* recall: ch2 — the logo becomes a circle */
+  border-radius: 50%;
 }
 
 .head-count {
-  margin-left: auto;                           /* recall: ch2 — same trick as .time */
+  margin-left: auto;
   font-size: 12px;
-  color: var(--muted);
+  color: #64748b;
 }
 
 .tasks {
-  list-style: none;                            /* kill the default bullets */
+  list-style: none;
 }
 
 .task {
-  display: flex;                               /* recall: ch3 */
+  display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 4px;                           /* recall: ch2 */
+  padding: 14px 4px;
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  transition: background-color 0.18s ease,
+    padding-left 0.18s ease;
 }
 
 .task:last-child {
   border-bottom: none;
+}
+
+.task:hover {
+  background-color: rgba(15, 23, 42, 0.05);
+  padding-left: 10px;
 }
 
 .check {
@@ -179,28 +190,38 @@ body {
 }
 
 .name a {
-  color: var(--accent);
-  font-weight: 600;                            /* recall: ch1 */
-  text-decoration: none;                       /* recall: ch1 — links are underlined by default */
+  color: #4f46e5;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.name a:hover {
+  text-decoration: underline;
 }
 
 .time {
-  margin-left: auto;                           /* recall: ch2 — pushes the clock to the right */
+  margin-left: auto;
   font-size: 12px;
-  color: var(--muted);
+  color: #64748b;
 }
 
 .task.done .check {
-  background-color: #34d399;                   /* recall: ch5 */
+  background-color: #34d399;
   border-color: #34d399;
 }
 
 .task.done .name {
-  text-decoration: line-through;               /* recall: ch1 (now the 2nd value) */
-  color: var(--muted);
-  opacity: 0.7;                                /* recall: ch5 */
+  text-decoration: line-through;
+  color: #64748b;
+  opacity: 0.7;
 }
 
+/* ▲ END PATCH 3 */
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ▼ PATCH 4: Forms & Interaction (Ahmed Farouk Part)
+   ═══════════════════════════════════════════════════════════════ */
 .add-card {
   display: flex;
   flex-direction: column;
@@ -224,12 +245,12 @@ body {
 }
 
 .add-card input::placeholder {
-  color: var(--muted);
+  color: #64748b;
 }
 
 .add-card input:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: #4f46e5;
   box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
 }
 
@@ -237,17 +258,17 @@ body {
   padding: 14px 18px;
   border: none;
   border-radius: 12px;
-  background-image: linear-gradient(135deg, var(--accent), #7c3aed);
+  background-image: linear-gradient(135deg, #4f46e5, #7c3aed);
   color: #ffffff;
   font-size: 15px;
   font-weight: 700;
-  cursor: pointer;                             /* ch6: hand icon */
-  transition: transform 0.18s ease,            /* ch6: animate changes */
-              box-shadow 0.18s ease;
+  cursor: pointer;
+  transition: transform 0.18s ease,
+  box-shadow 0.18s ease;
 }
 
 .add-card button:hover {
-  transform: translateY(-3px);                 /* ch6: lift the button */
+  transform: translateY(-3px);
   box-shadow: 0 12px 28px rgba(79, 70, 229, 0.35);
 }
 
@@ -255,22 +276,14 @@ body {
   transform: translateY(0);
 }
 
-.task {
-  transition: background-color 0.18s ease,
-              padding-left 0.18s ease;
-}
-
-.task:hover {
-  background-color: rgba(15, 23, 42, 0.05);
-  padding-left: 10px;                          /* rows slide right on hover */
-}
-
-.name a:hover {
-  text-decoration: underline;                  /* recall: ch1 — the link reveals itself */
-}
-
 @media (max-width: 480px) {
-  .hero-title { font-size: 30px; }
-  .stats { flex-direction: column; }
+  .hero-title {
+    font-size: 30px;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
 }
 
+/* ▲ END PATCH 4 */
